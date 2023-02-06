@@ -1,0 +1,470 @@
+@import "variables";
+
+// BUTTON
+.button-black {
+  color: $white;
+  background-color: $black;
+  text-transform: uppercase;
+  letter-spacing: 0.2rem;
+  padding: 1.2rem calc(1.5rem + 1.5vw);
+  font-size: 1.3rem;
+  transition: all 0.2s;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+
+  &:hover {
+    background-color: $grey;
+    color: $black;
+  }
+}
+
+a.button-transparent-black {
+  color: $black;
+  background-color: transparent;
+  letter-spacing: 0.2rem;
+  padding: 1.2rem 4rem;
+  font-size: 1.3rem;
+  font-weight: $font-weight-bold;
+  display: inline-flex;
+  align-items: center;
+  text-transform: uppercase;
+  gap: 1.5rem;
+  transition: all 0.3s;
+  line-height: 0.9;
+
+  span {
+    transition: all 0.3s;
+    border-bottom: 1px solid transparent;
+  }
+
+  &:hover span {
+    border-bottom: 1px solid $black;
+  }
+}
+
+a.button-white {
+  color: $black;
+  background-color: $white;
+  text-transform: uppercase;
+  letter-spacing: 0.2rem;
+  padding: 1.2rem 4rem;
+  font-size: 1.3rem;
+  transition: all 0.2s;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  &:hover {
+    background-color: $grey;
+    color: $black;
+  }
+}
+
+a.button-transparent-white {
+  color: $white;
+  background-color: transparent;
+  letter-spacing: 0.2rem;
+  padding: 1.2rem 4rem;
+  font-size: 1.3rem;
+  font-weight: $font-weight-bold;
+  display: inline-flex;
+  align-items: center;
+  text-transform: uppercase;
+  gap: 1.5rem;
+  transition: all 0.3s;
+  line-height: 0.9;
+
+  span {
+    transition: all 0.3s;
+    border-bottom: 1px solid transparent;
+  }
+
+  &:hover span {
+    border-bottom: 1px solid $white;
+  }
+
+  img {
+    filter: brightness(1) invert(1);
+  }
+}
+
+// GRID
+.grid {
+  display: grid;
+}
+
+.grid-index-rows {
+  grid-template-rows: repeat(7, min-content);
+}
+
+.grid-stories-rows {
+  grid-template-rows: repeat(4, min-content);
+}
+
+.grid-index-columns {
+  grid-template-columns: minmax(5rem, 10%) 1fr minmax(5rem, 10%);
+
+  @media only screen and (max-width: $bp-tablet) {
+    grid-template-columns: minmax(2rem, 5%) 1fr minmax(2rem, 5%);
+  }
+}
+
+.grid-full-item {
+  grid-column: 1 / -1;
+}
+
+.grid-center-item {
+  grid-column: 2 / 3;
+}
+
+.justify-items-center {
+  justify-items: center;
+}
+
+// HEADER
+.header {
+  position: relative;
+  height: calc(7rem + 3vw);
+
+  &__container {
+    grid-column: 2 / 3;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  &__logo {
+    width: clamp(20rem, 17vw, 25rem);
+  }
+
+  &__nav {
+    @media only screen and (max-width: $bp-500) {
+      display: none;
+    }
+
+    &--list {
+      display: flex;
+      list-style: none;
+      gap: 4rem;
+    }
+
+    &--link {
+      &:link,
+      &:visited {
+        text-transform: uppercase;
+        color: $black;
+        font-weight: $font-weight-bold;
+        letter-spacing: 0.2rem;
+        font-size: 1.6rem;
+        transition: color 0.2s;
+      }
+
+      &:hover {
+        color: rgb(193, 193, 193);
+      }
+    }
+  }
+
+  &__button {
+    @media only screen and (max-width: $bp-500) {
+      display: none;
+    }
+  }
+
+  &__menu {
+    display: none;
+    align-items: center;
+
+    @media only screen and (max-width: $bp-500) {
+      display: flex;
+    }
+
+    &--open {
+      width: calc(3rem + 1.5vw);
+      cursor: pointer;
+    }
+
+    &--close {
+      width: calc(2rem + 1.5vw);
+      cursor: pointer;
+    }
+  }
+}
+
+// MENU
+.menu {
+  position: absolute;
+  top: calc(7rem + 3vw);
+  left: 0;
+  width: 100%;
+  height: calc(100% - calc(7rem + 3vw));
+  background-color: rgba(1, 1, 1, 0.6);
+  z-index: 100;
+
+  grid-column: 1 / -1;
+
+  display: none;
+  grid-template-columns: minmax(5rem, 10%) 1fr minmax(5rem, 10%);
+  justify-items: center;
+
+  @media only screen and (max-width: $bp-tablet) {
+    grid-template-columns: minmax(2rem, 5%) 1fr minmax(2rem, 5%);
+  }
+
+  &__container {
+    background-color: $white;
+    width: 100%;
+    height: 40rem;
+
+    grid-column: 1 / -1;
+
+    display: grid;
+    grid-template-columns: minmax(5rem, 10%) 1fr minmax(5rem, 10%);
+
+    @media only screen and (max-width: $bp-tablet) {
+      grid-template-columns: minmax(2rem, 5%) 1fr minmax(2rem, 5%);
+    }
+  }
+
+  &__content {
+    grid-column: 2 / 3;
+
+    display: grid;
+  }
+
+  &__list {
+    list-style: none;
+    border-bottom: 1px solid $grey;
+    text-align: center;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 3rem;
+  }
+
+  &__item {
+  }
+
+  &__link {
+    &:link,
+    &:visited {
+      text-transform: uppercase;
+      color: $black;
+      font-weight: $font-weight-bold;
+      letter-spacing: 0.2rem;
+      font-size: 2.2rem;
+    }
+  }
+
+  &__button {
+    justify-self: stretch;
+    align-self: center;
+    font-size: 2.2rem;
+    padding-block: 3rem;
+  }
+}
+
+// TESTIMONIAL
+.testimonial {
+  grid-column: 1 / -1;
+
+  display: grid;
+  position: relative;
+
+  @media only screen and (max-width: $bp-500) {
+    height: 100rem;
+  }
+
+  &.odd {
+    grid-template-columns: 0.42fr 0.58fr;
+
+    &::before {
+      content: "";
+      display: block;
+      width: 20rem;
+      height: 4px;
+      position: absolute;
+      left: -9.7rem;
+      top: 50%;
+      transform: rotateZ(90deg);
+      background-image: linear-gradient(to left, #ffc593, #bc7198, #5a77ff);
+
+      @media only screen and (max-width: $bp-500) {
+        left: 5rem;
+        top: 42%;
+        transform: rotateZ(0deg);
+      }
+    }
+
+    @media only screen and (max-width: $bp-1100) {
+      grid-template-columns: 0.5fr 0.5fr;
+    }
+
+    @media only screen and (max-width: $bp-800) {
+      grid-template-columns: 0.7fr 0.3fr;
+    }
+
+    @media only screen and (max-width: $bp-500) {
+      grid-template-columns: 1fr;
+      grid-template-rows: 42% 58%;
+    }
+  }
+
+  &.even {
+    grid-template-columns: 0.58fr 0.42fr;
+
+    @media only screen and (max-width: $bp-1100) {
+      grid-template-columns: 0.5fr 0.5fr;
+    }
+
+    @media only screen and (max-width: $bp-800) {
+      grid-template-columns: 0.3fr 0.7fr;
+    }
+
+    @media only screen and (max-width: $bp-500) {
+      grid-template-columns: 1fr;
+      grid-template-rows: 42% 58%;
+    }
+  }
+
+  &__text {
+    color: $white;
+    padding: 15rem 10rem;
+
+    display: grid;
+    justify-items: start;
+    align-items: center;
+    grid-row-gap: 2rem;
+
+    @media only screen and (max-width: $bp-1300) {
+      padding-inline: 8rem;
+    }
+
+    @media only screen and (max-width: $bp-1100) {
+      padding-inline: 7rem;
+    }
+
+    @media only screen and (max-width: $bp-500) {
+      grid-row: 2 / 3;
+    }
+  }
+
+  &__heading {
+    font-size: clamp(1rem, 7vw, 5rem);
+    text-transform: uppercase;
+    line-height: 1.2;
+
+    @media only screen and (max-width: $bp-1300) {
+      font-size: 4rem;
+    }
+
+    @media only screen and (max-width: $bp-1100) {
+      font-size: 3.5rem;
+    }
+  }
+
+  &__paragraph {
+    font-size: 1.4rem;
+  }
+
+  &__link {
+    &:link,
+    &:visited {
+      padding: 0;
+      font-size: 1.4rem;
+    }
+
+    img {
+      width: 3.5rem;
+    }
+  }
+
+  &__img {
+    background-size: cover;
+    background-position: center;
+
+    @media only screen and (max-width: $bp-500) {
+      grid-row: 1 / 2;
+    }
+
+    &--index {
+      background-image: url("../starter-code/assets/home/desktop/create-and-share.jpg");
+
+      @media only screen and (max-width: $bp-800) {
+        background-image: url("../starter-code/assets/home/tablet/create-and-share.jpg");
+      }
+
+      @media only screen and (max-width: $bp-500) {
+        background-image: url("../starter-code/assets/home/mobile/create-and-share.jpg");
+      }
+    }
+
+    &--features {
+      background-image: url("../starter-code/assets/features/desktop/hero.jpg");
+
+      @media only screen and (max-width: $bp-800) {
+        background-image: url("../starter-code/assets/features/tablet/hero.jpg");
+      }
+
+      @media only screen and (max-width: $bp-500) {
+        background-image: url("../starter-code/assets/features/mobile/hero.jpg");
+      }
+    }
+
+    &--pricing {
+      background-image: url("../starter-code/assets/pricing/desktop/hero.jpg");
+
+      @media only screen and (max-width: $bp-800) {
+        background-image: url("../starter-code/assets/pricing/tablet/hero.jpg");
+      }
+
+      @media only screen and (max-width: $bp-500) {
+        background-image: url("../starter-code/assets/pricing/mobile/hero.jpg");
+      }
+    }
+
+    &--2 {
+      background-image: url("../starter-code/assets/home/desktop/beautiful-stories.jpg");
+
+      @media only screen and (max-width: $bp-800) {
+        background-image: url("../starter-code/assets/home/tablet/beautiful-stories.jpg");
+      }
+
+      @media only screen and (max-width: $bp-500) {
+        background-image: url("../starter-code/assets/home/mobile/beautiful-stories.jpg");
+      }
+    }
+
+    &--3 {
+      background-image: url("../starter-code/assets/home/desktop/designed-for-everyone.jpg");
+
+      @media only screen and (max-width: $bp-800) {
+        background-image: url("../starter-code/assets/home/tablet/designed-for-everyone.jpg");
+      }
+
+      @media only screen and (max-width: $bp-500) {
+        background-image: url("../starter-code/assets/home/mobile/designed-for-everyone.jpg");
+      }
+    }
+  }
+}
+
+.bg-white {
+  background-color: $white;
+}
+
+.bg-black {
+  background-color: $black;
+}
+
+.color-white {
+  color: $white;
+}
+
+.color-black {
+  color: $black;
+}

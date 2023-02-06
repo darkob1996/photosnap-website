@@ -1,0 +1,14 @@
+@import "variables";
+
+body {
+  font-family: $font;
+  font-weight: $font-weight-regular;
+  font-size: 1.5rem;
+  line-height: 2.5rem;
+}
+
+a:link,
+a:visited {
+  text-decoration: none;
+  cursor: pointer;
+}

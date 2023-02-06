@@ -1,0 +1,23 @@
+// COLORS
+$black: rgb(0, 0, 0);
+$grey: rgb(223, 223, 223);
+$white: rgb(255, 255, 255);
+$gradient: linear-gradient(45deg, #ffc593, #bc7198, #5a77ff);
+
+// TIPOGRAPHY
+$font: "DM Sans", sans-serif;
+$font-weight-bold: 700;
+$font-weight-regular: 400;
+
+// BREAKPOINTS
+$bp-1300: 81.25em;
+$bp-1200: 75em;
+$bp-1100: 68.75em;
+$bp-1000: 62.5em;
+$bp-900: 56.25em;
+$bp-800: 50em;
+$bp-tablet: 48em;
+$bp-700: 43.75em;
+$bp-600: 37.5em;
+$bp-500: 31.25em;
+$bp-mobile: 23.5em;
